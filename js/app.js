@@ -2,6 +2,15 @@
 const nav = document.getElementById("navbar__list");
 // selecting all sections
 const sections = document.querySelectorAll("section");
+// selecting scroll to top button
+const btn = document.getElementById("scroll-up");
+// declaring scrollingStopped variable to update later in scrolling function
+let scrollingStopped;
+
+// scroll to top function
+btn.onclick = () => {
+  scrollTo(0, 0);
+};
 
 // looping over all sections
 sections.forEach((section) => {
@@ -29,6 +38,30 @@ const links = document.querySelectorAll(".menu__link");
 
 // while scrolling function
 window.onscroll = () => {
+  // showing nav menu bar
+  nav.style.marginTop = "0";
+  // while hovering over nav menu bar
+  nav.onmouseover = () => {
+    // showing nav menu bar
+    nav.style.marginTop = "0";
+    // stop executing scrollingStopped function while hovering over nav menu bar
+    clearTimeout(scrollingStopped);
+  };
+  // stop executing scrollingStopped function while scrolling
+  clearTimeout(scrollingStopped);
+  // scrollingStopped function that executes after 500ms
+  scrollingStopped = setTimeout(() => {
+    // hiding nav menu bar dynamically based on its height
+    nav.style.marginTop = `-${nav.getBoundingClientRect().height}px`;
+  }, 500);
+
+  // scroll to top button appearance
+  if (scrollY >= 1000) {
+    btn.style.transform = "translateX(0)";
+  } else {
+    btn.style.transform = "translateX(100px)";
+  }
+
   // looping over all sections
   sections.forEach((section) => {
     // condition to check current section in viewport

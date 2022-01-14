@@ -66,13 +66,34 @@ section {
   min-height: 80vh;
 }
 
+#scroll-up {
+  background-color: #333;
+  border-radius: 6px;
+  border: none;
+  bottom: 2rem;
+  color: #cc1;
+  font-size: 1.3rem;
+  padding: 0.5em;
+  position: fixed;
+  right: 2rem;
+  transition: ease 0.5s all;
+  cursor: pointer;
+  z-index: 9999;
+  transform: translateX(100px);
+}
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
 .navbar__menu ul {
+  transition: ease 0.5s all;
   padding-left: 0;
   margin: 0;
   text-align: right;
+  background: linear-gradient(
+    6deg,
+    rgba(136, 203, 171, 1) 0%,
+    rgba(0, 13, 60, 1) 100%
+  );
 }
 
 .navbar__menu li {
@@ -84,13 +105,13 @@ section {
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
-  color: #000;
+  color: white;
 }
 
 .navbar__menu .menu__link:hover,
 .navbar__menu .menu__link.active {
   background: #333;
-  color: #fff;
+  color: #cc1;
   transition: ease 0.3s all;
 }
 /* Header Styles */
