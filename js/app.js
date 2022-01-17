@@ -94,7 +94,8 @@ window.onscroll = () => {
 // looping over all links
 links.forEach((link) => {
   // listening to click event on a link
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
     // looping over all links
     links.forEach((link) => {
       // removing active class from all links
@@ -111,5 +112,6 @@ links.forEach((link) => {
     const currentSection = document.querySelector(link.getAttribute("href"));
     // Set section as active
     currentSection.classList.add("active");
+    currentSection.scrollIntoView({ behavior: "smooth" });
   });
 });
