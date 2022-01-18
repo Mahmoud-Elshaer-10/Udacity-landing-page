@@ -9,7 +9,10 @@ let scrollingStopped;
 
 // scroll to top function
 btn.onclick = () => {
-  scrollTo(0, 0);
+  scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 // looping over all sections
